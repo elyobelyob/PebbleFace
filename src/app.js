@@ -17,20 +17,20 @@ var URL = host + '/emoncms/feed/list.json?apikey=' + apikey ;
 var feedids = [7,11,14,8,12,15,20];
 
 // Make the request
-var appsList = parseApps(emonResponse);
+var appsList = makeRequest(emonResponse);
 
 main.body(appsList);
 
 main.on('click', 'select', function(e) {
   console.log("Select pressed");
   main.body('Fetching...');
-  var appsList = parseApps(emonResponse);
+  var appsList = makeRequest(emonResponse);
 
   main.body(appsList);
 
 });
 
-function parseApps(data) {
+function makeRequest(data) {
 // Make the request
 ajax(
   {
